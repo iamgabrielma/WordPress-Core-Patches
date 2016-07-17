@@ -1,0 +1,13 @@
+Index: tests/phpunit/tests/comment/checkComment.php
+===================================================================
+--- tests/phpunit/tests/comment/checkComment.php	(revision 38062)
++++ tests/phpunit/tests/comment/checkComment.php	(working copy)
+@@ -1,5 +1,8 @@
+ <?php
+ 
++/**
++ * @group comment
++ */
+ class Tests_Comment_CheckComment extends WP_UnitTestCase {
+ 	public function test_should_return_true_when_comment_whitelist_is_disabled() {
+ 		$author       = 'BobtheBuilder';

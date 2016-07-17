@@ -1,0 +1,46 @@
+Index: src/wp-includes/general-template.php
+===================================================================
+--- src/wp-includes/general-template.php	(revision 38062)
++++ src/wp-includes/general-template.php	(working copy)
+@@ -2884,19 +2884,19 @@
+ }
+ 
+ /**
+- * Whether the user should have a WYSIWIG editor.
++ * Whether the user can access the WYSIWYG visual editor.
+  *
+- * Checks that the user requires a WYSIWIG editor and that the editor is
++ * Checks that the user requires a WYSIWYG visual editor and that the editor is
+  * supported in the users browser.
+  *
+  * @since 2.0.0
+  *
+- * @global bool $wp_rich_edit
+- * @global bool $is_gecko
+- * @global bool $is_opera
+- * @global bool $is_safari
+- * @global bool $is_chrome
+- * @global bool $is_IE
++ * @global bool $wp_rich_edit	
++ * @global bool $is_gecko		Checks if the user is using a Gecko-based browser
++ * @global bool $is_opera 		Checks if the user is using the Opera browser
++ * @global bool $is_safari		Checks if the user is using the Safari browser (AppleWebkit engine instead of Gecko-based)
++ * @global bool $is_chrome		Checks if the user is using the Chrome browser
++ * @global bool $is_IE 			Checks if the user is using the Internet Explorer browser
+  *
+  * @return bool
+  */
+@@ -2916,11 +2916,11 @@
+ 	}
+ 
+ 	/**
+-	 * Filters whether the user can access the rich (Visual) editor.
++	 * Filters whether the user can access the WYSIWYG visual editor.
+ 	 *
+ 	 * @since 2.1.0
+ 	 *
+-	 * @param bool $wp_rich_edit Whether the user can access to the rich (Visual) editor.
++	 * @param bool $wp_rich_edit Whether the user can access the WYSIWYG visual editor.
+ 	 */
+ 	return apply_filters( 'user_can_richedit', $wp_rich_edit );
+ }

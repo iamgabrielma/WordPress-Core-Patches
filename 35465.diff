@@ -1,0 +1,82 @@
+Index: src/wp-includes/js/wp-backbone.js
+===================================================================
+--- src/wp-includes/js/wp-backbone.js	(revision 36244)
++++ src/wp-includes/js/wp-backbone.js	(working copy)
+@@ -4,11 +4,14 @@
+ 	// Create the WordPress Backbone namespace.
+ 	wp.Backbone = {};
+ 
+-
+-	// wp.Backbone.Subviews
+-	// --------------------
+-	//
+-	// A subview manager.
++	/**
++	 * A subview manager.
++	 *
++	 * @class
++	 *
++	 * @param  {wp.Backbone.View} view  The main view.
++	 * @param  {array|object}     views The subviews for the main view.
++	 */
+ 	wp.Backbone.Subviews = function( view, views ) {
+ 		this.view = view;
+ 		this._views = _.isArray( views ) ? { '': views } : views || {};
+@@ -17,32 +20,40 @@
+ 	wp.Backbone.Subviews.extend = Backbone.Model.extend;
+ 
+ 	_.extend( wp.Backbone.Subviews.prototype, {
+-		// ### Fetch all of the subviews
+-		//
+-		// Returns an array of all subviews.
++		/**
++		 * Fetch all of the subviews.
++		 *
++		 * @return {array} All the subviews.
++		 */
+ 		all: function() {
+ 			return _.flatten( this._views );
+ 		},
+ 
+-		// ### Get a selector's subviews
+-		//
+-		// Fetches all subviews that match a given `selector`.
+-		//
+-		// If no `selector` is provided, it will grab all subviews attached
+-		// to the view's root.
++		/**
++		 * Fetches all subviews that match a given `selector`.
++		 *
++		 * If no `selector` is provided, it will grab all subviews attached
++		 * to the view's root.
++		 *
++		 * @param {string} selector A jQuery selector.
++		 * @return {array}
++		 */
+ 		get: function( selector ) {
+ 			selector = selector || '';
+ 			return this._views[ selector ];
+ 		},
+ 
+-		// ### Get a selector's first subview
+-		//
+-		// Fetches the first subview that matches a given `selector`.
+-		//
+-		// If no `selector` is provided, it will grab the first subview
+-		// attached to the view's root.
+-		//
+-		// Useful when a selector only has one subview at a time.
++		/**
++		 * Fetches the first subview that matches a given `selector`.
++		 *
++		 * If no `selector` is provided, it will grab the first subview
++		 * attached to the view's root.
++		 *
++		 * Useful when a selector only has one subview at a time.
++		 *
++		 * @param {string} selector A jQuery selector.
++		 * @return {Backbone.View} The view.
++		 */
+ 		first: function( selector ) {
+ 			var views = this.get( selector );
+ 			return views && views.length ? views[0] : null;

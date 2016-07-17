@@ -1,0 +1,18 @@
+Index: src/wp-includes/general-template.php
+===================================================================
+--- src/wp-includes/general-template.php	(revision 38061)
++++ src/wp-includes/general-template.php	(working copy)
+@@ -2884,10 +2884,10 @@
+ }
+ 
+ /**
+- * Whether the user should have a WYSIWIG editor.
++ * Whether the user should have a WYSIWYG editor.
+  *
+- * Checks that the user requires a WYSIWIG editor and that the editor is
+- * supported in the users browser.
++ * Checks that the user requires a WYSIWYG editor and that the editor is
++ * supported in the user's browser.
+  *
+  * @since 2.0.0
+  *
